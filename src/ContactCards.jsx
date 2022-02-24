@@ -1,5 +1,5 @@
 const ContactCards = ({ contactList }) => {
-    contactList && console.log(contactList)
+    contactList && console.log("data-list",contactList)
     return (
         <>
           {contactList?.map((contact, index) => (

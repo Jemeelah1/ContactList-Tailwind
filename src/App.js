@@ -13,7 +13,7 @@ function App() {
   useEffect( () => {
     if(filterQuery) {
       const queryString = filterQuery.toLowerCase()
-      const filteredData = data?.result?.filter(contact => {
+      const filteredData = data?.results?.filter(contact => {
         const fullName = `${contact.name.first} ${contact.name.last}`
 
         if (queryString.length === 1) {
@@ -23,7 +23,7 @@ function App() {
         else {
           return fullName.toLowerCase().includes(queryString)
         }
-      })
+      });
       setContactList(filteredData)
     }
     else {
@@ -43,7 +43,8 @@ function App() {
             onChange={event => setFilterQuery(event.target.value)} />
           </form>
           <button className=" flex justify-center md:justify-end mt-6 bg-gray-800 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-md p-2 ml-80 "
-          isLoading={event => setFilterQuery(event.target.value)}>
+          onClick={() => window.location.reload()
+          }>
               Refresh
           </button>
         </div>
